@@ -1,4 +1,7 @@
+ "use client"
+
 import React from 'react'
+import { useTheme  } from 'next-themes';
 import Container from './ui/Container';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -6,23 +9,22 @@ import { Moon, ShoppingCart, Sun } from 'lucide-react';
 import ProfileButton from './ui/ProfileButton';
 
 
-
-const routes = [
-  {
-    href: "/",
-    label: "Product",
-  },
-  {
-    href: "/",
-    label: "Categories",
-  },
-  {
-    href: "/",
-    label: "On Sale",
-  },
-]
-
 function Header() {
+  const { theme, setTheme } = useTheme();
+  const routes = [
+    {
+      href: "/",
+      label: "Product",
+    },
+    {
+      href: "/",
+      label: "Categories",
+    },
+    {
+      href: "/",
+      label: "On Sale",
+    },
+  ]
   return (
     <header className='sm:flex sm:justify-between py-3 px-4 border-b'>
         <Container>
@@ -63,6 +65,7 @@ function Header() {
                   size={"icon"}
                   className='mr-6'
                   aria-label='Toggle Theme'
+                  onClick={ () => setTheme(theme === "light" ? "dark" : "light") }
                   >
                     <Sun className='h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0'/>
                     <Moon className='absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100'/>
