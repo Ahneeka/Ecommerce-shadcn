@@ -1,8 +1,9 @@
+import { Container } from "lucide-react";
 
 export default function Home() {
   return (
-    <div>
-      content
-    </div>
+    <Container>
+      
+    </Container>
   );
 }
